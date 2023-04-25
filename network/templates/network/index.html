@@ -1,0 +1,56 @@
+{% extends "network/layout.html" %}
+
+{% block body %}
+    <h1 style="text-align: center;">All Posts</h1>
+    <div class="new-post">
+        <form action="" method="post">
+            {% csrf_token %}            
+            <label for="post" style="font-weight: bold;">New Post</label>
+            <textarea name="post" id="post"></textarea>
+            <button type="submit" class="btn btn-primary">Submit Post</button>            
+        </form>
+    </div>    
+    {% for each_post in page %}
+    <div class="divs">
+        <div class="user"> 
+            <h5><a href="/profile/{{each_post.user.id}}">{{each_post.user}}</a></h5>
+        </div>
+        <div>
+            <span id="post-content-{{each_post.id}}" class="post-content">{{each_post.content}}</span>
+            <form id="edit-form-{{each_post.id}}" class="edit-form" style="display:none">
+                {% csrf_token %}
+                <textarea id="edit-content-{{each_post.id}}" class="edited-content">{{each_post.content}}</textarea>
+                <button type="submit" data-id="{{each_post.id}}" class="btn btn-primary save-btn">Save</button>
+            </form>            
+        </div>
+        <div class="timestamp">
+            {{each_post.timestamp}}
+        </div>
+        <div class="btns">
+            <button class="like-btn" data-id="{{each_post.id}}"><img class="like-btn-img" src="static/network/likeButton.png" alt="Like"><span id="like-count-{{each_post.id}}" style="font-weight: bold;">{{ each_post.likes_count }}</span></button>
+            {% if user == each_post.user %}
+                <button class="btn btn-sm btn-outline-secondary edit-btn" data-id="{{each_post.id}}" data-content="{{each_post.content}}">Edit</button>            
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+    <nav aria-label="page navigation" class="nav">
+        <div class="page-nav">
+            <ul>    
+                {% if page.has_previous %}
+                    <li><a class="page-link" href="?page=1">&laquo; first</a></li>
+                    <li>...</li>
+                    <li><a class="page-link" href="?page={{ page.previous_page_number}}">Previous</a></li>
+                {% endif %}
+                <span>
+                    <li id="current-page">{{ page.number }}</li>
+                </span>
+                {% if page.has_next %}
+                    <li><a class="page-link" href="?page={{ page.next_page_number }}">Next</a></li>
+                    <li>...</li>
+                    <li><a class="page-link" href="?page={{ page.paginator.num_pages }}">Last &raquo;</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav> 
+{% endblock %}
