@@ -1,0 +1,23 @@
+{% extends 'MGIH/layout.html' %}
+
+{% block body %}
+    <div style="width:100%">
+        <div style="width:25%; display:block; margin-left: auto; margin-right: auto; margin-top: 10%; border-radius: 20px; background: rgba(235, 182, 118, 0.502);">
+            <h2 style="text-align: center;background: rgb(228, 154, 51); border-top-right-radius: 20px; border-top-left-radius: 20px; padding: 5px; color: white">Register:</h2>
+            <form action="{% url 'register' %}" method="post">
+                {% csrf_token %}
+                <ul>
+                    <ul class="log-form"><label for="username">Username:</label></ul>
+                    <ul class="log-form"><input type="text" name="username" autofocus="True"></ul>
+                    <ul class="log-form"><label for="username">email:</label></ul>
+                    <ul class="log-form"><input type="text" name="email"></ul>
+                    <ul class="log-form"><label for="password">Password:</label></ul>
+                    <ul class="log-form"><input type="password" name="password"></ul>
+                    <ul class="log-form"><label for="username">Confirm Password:</label></ul>
+                    <ul class="log-form"><input type="password" name="conf_password"></ul>
+                    <ul class="log-form"><button class="submit-btn" type="submit" style="margin-bottom: 20px; margin-top: 10px;">Submit</button></ul>
+                </ul>
+            </form>
+        </div>
+    </div>
+{% endblock %}

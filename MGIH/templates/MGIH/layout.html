@@ -1,0 +1,48 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}My Girl is Hungry{% endblock %}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href="{% static 'MGIH/styles.css' %}" rel="stylesheet">
+        <script src="{% static 'MGIH/MyGirlIsHungry.js' %}"></script>
+    </head>
+    <body>
+        <nav class="navbar sticky-top navbar-expand-sm navbar-light" style="background-color:rgb(255, 206, 147)">
+            <a class="navbar-brand" href="{% url 'index' %}">
+                <img src="/images/MGIH_1.png" id="logo" width="160" height="100" alt="MyGirlIsHungry">
+            </a>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a href="{% url 'all_recipes_page' %}"><button class="layout-nav-btn">All Recipes</button></a>
+                </li>
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a href="{% url 'save_recipe' %}"><button class="layout-nav-btn">My Recipes</button></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'new_recipe' %}"><button class="layout-nav-btn">New Recipe</button></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'logout' %}"><button class="layout-nav-btn">Logout</button></a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a href="{% url 'login' %}"><button class="layout-nav-btn">Login</button></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'register' %}"><button class="layout-nav-btn">Register</button></a>
+                    </li>
+                {% endif %}                    
+            </ul>
+            {% if user.is_authenticated %}
+                <span class="layout-user"><p> signed in as:</p><p><strong>{{ user.username }}</strong></p></span>
+            {% endif %}                        
+        </nav>
+        <div class="body">
+            {% block body %}
+            {% endblock %}
+        </div>
+    </body>
+</html>

@@ -1,0 +1,54 @@
+{% extends "MGIH/layout.html" %}
+
+{% block body %}
+    <div class="new-recipe-card">
+        <h1 class="new-recipe-title">New Recipe:</h1>
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input class="form-control" type="text" name="name" id="name">
+            </div>
+            <div class="form-group">
+                <label for="image">Image:</label>
+                <input type="file" name="image" accept="image/png, image/jpeg" id="image">
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label for="prep-time">Prep Time:</label>
+                    <input class="form-control" type="text" name="prep_time" id="prep-time">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="cook-time">Cook Time:</label>
+                    <input class="form-control" type="text" name="cook_time" id="cook-time">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="total-time">Total Time:</label>
+                    <input class="form-control" type="text" name="total_time" id="total-time">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="servings">Servings:</label>
+                    <input class="form-control" type="text" name="servings" id="servings">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="ingredients">Ingredients:</label>
+                <datalist id="ingredients">
+                    {% for ingredient in ingredients %}
+                        <option value="{{ ingredient.name }}"></option>
+                    {% endfor %}
+                </datalist>
+            </div>
+            <div id="extra-box">
+                <div class="ingredient-row">    
+                    <div class="ingredient-column-1"><input type="text" name="measurement[0]" placeholder="Measurement" style="margin: 10px; border-radius: 20px; padding: 5px"></div>
+                    <div class="ingredient-column-2"><input class="ingredient-box" list="ingredients" name="ingredient[0]" style="margin: 10px; border-radius: 20px; padding: 5px" placeholder="Ingredient"></div>
+                </div>
+            </div>
+            <div class="div-btn"><button type="button" id="add-btn">+</button></div>
+            <div><label for="description">Directions:</label></div>
+            <div form-group col-md-3><textarea class="form-control" name="description" id="description" style="height: 15rem;">Step 1:</textarea></div>
+            <div class="div-btn"><button type="submit" class="submit-btn" style="margin-bottom: 50px;">Submit</button></div>
+        </form>
+    </div>    
+{% endblock %}

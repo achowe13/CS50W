@@ -1,0 +1,51 @@
+{% extends 'MGIH/layout.html' %}
+
+{% block body %}
+    <div class="recipe-spacer"></div>
+    <div class="recipe-overview">
+        {% for recipe in page %}
+        <div class="all-recipe-div">
+            <form action="{% url 'recipe_page' page_id=recipe.id %}"  method="get" class="all-recipe-form">
+                <button type="submit" class="recipe-btn">
+                    <div class="all-img-div"><img src="{{ recipe.image }}" alt="{{ recipe.image }}" class="all-image"></div>
+                    <div class="all-p-div">    
+                        <h4><strong>{{ recipe.name }}</strong></h4>
+                        <p><strong>Total Time: </strong>{{ recipe.total_time }}</p>
+                        <p><strong>Servings: </strong>{{ recipe.servings }}</p>
+                        <p><strong>Ingredients: </strong>     
+                            {% for ingredient in recipe.ingredient_names %}
+                                {% if forloop.counter < recipe.ingredient_names|length %}
+                                    {{ ingredient }},
+                                {% else %}
+                                    {{ ingredient }}
+                                {% endif %}
+                            {% endfor %}
+                        </p>
+                    </div>
+                </button>
+            </form>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="paginator-div">    
+        <nav aria-label="page navigation" class="nav">
+            <div class="page-nav">
+                <ul>    
+                    {% if page.has_previous %}
+                        <li><a class="page-link" href="?page=1">&laquo; first</a></li>
+                        <li>...</li>
+                        <li><a class="page-link" href="?page={{ page.previous_page_number}}">Previous</a></li>
+                    {% endif %}
+                    <span>
+                        <li id="current-page">{{ page.number }}</li>
+                    </span>
+                    {% if page.has_next %}
+                        <li><a class="page-link" href="?page={{ page.next_page_number }}">Next</a></li>
+                        <li>...</li>
+                        <li><a class="page-link" href="?page={{ page.paginator.num_pages }}">Last &raquo;</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav> 
+    </div>
+{% endblock %}

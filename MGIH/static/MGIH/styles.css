@@ -1,0 +1,412 @@
+html * {
+    font-size: 2;
+    line-height: 1.625;
+    color: black;
+    font-family: Georgia, Arial, sans-serif;
+  }
+
+body {
+    background-color: rgb(246, 230, 206);
+}
+
+#logo {
+    border: none;
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.365);
+}
+
+
+.nav-item {
+    padding: 10px;
+    font-weight: bold;
+    font-size: large;
+    font-family:  serif;
+}
+
+
+.layout-nav-btn {
+    border: none;
+    color: white;
+    background-color: #dd8500;
+    border-radius: 12px;
+    cursor: pointer;
+    padding: 10px;
+    font-weight: bold;
+    font-size: large;
+    box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.365);
+}
+
+.layout-nav-btn:hover {
+    filter: brightness(1.1);
+    transform: scale(1.10);
+    box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, 0.265);
+    transition: 0.3s;
+    border-radius: 24px;
+}
+
+.layout-nav-btn:active{
+    filter:brightness(0.9);
+    transform: scale(0.95);
+}
+
+
+.nav-link {
+    color: black;
+    background-color: white;
+    border: 4px outset rgb(239, 178, 93);
+    border-radius: 8px;    
+}
+
+
+.log-form{
+    margin: 5px;
+    margin-left: 17%;
+}
+
+.log-form input {
+    border-radius: 8px;
+}
+
+
+.layout-user {
+    font-size: large;
+    text-align: right;
+    margin-right: 5%;
+}
+
+
+#add-btn {
+    font-size: 20px;
+    border: 2px solid chocolate;
+    color: chocolate;
+    background-color: gainsboro;
+    border-radius: 50px;
+    margin: 10px;
+    width: 40px
+}
+
+
+#add-btn:hover {
+    background-color: grey;
+    color: rgb(250, 194, 111);
+    transform: scale(1.2);
+    transition: 0.3s
+}
+
+#add-btn, select {
+    border-color: chocolate !important;
+    outline: none;
+}
+
+.submit-btn {
+    color: white;
+    background-color: #dd8500;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 5px;
+    font-weight: bold;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.365);
+
+
+}
+
+.submit-btn:hover {
+    transform: scale(1.1);
+    transition: 0.3s
+}
+
+.submit-btn:active {
+    border:none;
+}
+
+
+.labels {
+    text-align: left;
+    padding-left: 60px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+
+.new-inputs {
+    padding: 5px;
+    margin: 10px;
+    border-radius: 20px;
+}
+
+
+.div-btn {
+    padding: 10px;
+    text-align: center;
+}
+
+
+.ingredient-row {
+    display: flex;
+}
+  
+
+.ingredient-column-1 {
+    flex: 50%;
+    text-align: right;
+}
+
+.ingredient-column-2 {
+    flex: 50%;
+    text-align: left;
+}
+
+
+.recipe-spacer {
+    width: 100%;
+    height: 20px;
+}
+
+
+.all-image {
+    width: 100%;
+    overflow: hidden;
+}
+
+
+.recipePage-image {
+    width: 40%;
+    max-height: 800px;
+}
+
+
+.recipe-description {
+    white-space: pre-wrap;
+}
+
+
+.recipe-page-div {
+    border: 2px solid grey;
+    border-radius: 14px;
+    background-color: rgb(239, 235, 226);
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 20px;
+    margin-bottom: 200px;
+    box-shadow: 1px 1px 4px 3px rgba(0, 0, 0, 0.365);
+}
+
+
+.recipe-ingredients-div{
+    border: 2px solid gainsboro;
+    background-color: white;
+    display: block;
+    block-size: fit-content;
+    width: fit-content;
+    height: auto;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+
+.recipe-directions-div {
+    border: 2px solid gainsboro;
+    background-color: white;
+    width: auto;
+    height: auto;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 12px;
+}
+
+
+.all-recipe-div{
+    margin: 5px;
+}
+
+
+.all-img-div {
+    display: flex;
+    float: left;
+    margin-right: 5%;
+    margin-left: 5%;
+    width: 20%;
+    height: 250px;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+}
+
+.all-p-div {
+    width: 80%;
+    padding-left: 20px;
+    text-align: left;
+    margin-top: 10px;
+}
+
+
+.recipe-btn {
+    margin-left: 10%;
+    width: 80%;
+    height: 250px;
+    border: 2px solid gainsboro;
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+.bookmark {
+    border: none;
+    background: none;
+    position: relative;
+}
+
+.bookmark-img {
+    width: 40px;
+    height: auto;
+    color: white;
+    background: none;
+    position: relative;
+}
+
+
+.recipe-title {
+    width: 100%;
+    height: 100px;
+    background-color: orange;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    padding: 10px;
+}
+
+
+.recipe-title h1 {
+    float: left;
+    width: auto;
+}
+
+
+.recipe-title form {
+    position: relative;
+    top: 10px;
+}
+
+
+.comments {
+    margin: 10px;
+}
+
+
+.comment-box {
+    padding: 10px;
+    border: 2px solid gainsboro;
+    border-radius: 12px;
+    background-color: white;
+    margin-bottom: 5px;
+}
+
+.rating {
+    margin-left: 20px;
+}
+
+
+.stars-inputs {
+    display: none;
+}
+
+.stars {
+    margin-top: 10px;
+    display: inline-flex;
+    font-size: 30px;
+    cursor: default;
+    flex-direction: row-reverse;
+}
+
+.stars label{
+    display: flex;
+    padding-right: 5px;
+    color: grey;
+    flex-direction: row-reverse;
+}
+
+.stars input:hover ~ label {
+    color: #ff9900;
+}
+
+.stars input:checked ~ label {
+    color: #ff9900;
+}
+
+
+#error {
+    color: red;
+    font-weight: bold;
+}
+
+#current-page {
+    border: 1px gainsboro solid;
+    border-radius: 20px;
+    background: dodgerblue;
+    color:white;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+}
+
+.page-nav {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+
+.page-link {
+    border-radius: 20px;
+}
+
+.new-recipe-card {
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 20px;
+    margin-left: 15%;
+    margin-right: 15%;
+    box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.365);
+}
+
+.new-recipe-title {
+    text-align: center;
+    padding: 10px;
+    background-color: chocolate;
+    color: white;
+    margin-top: 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.nav ul {
+    list-style: none;
+    text-align: center;
+ }
+ 
+ .nav ul li {
+    display: inline-block;
+ }
+
+ #login-div {
+    width: 25%; 
+    display: block; 
+    margin-left: auto; 
+    margin-right: auto; 
+    margin-top: 10%; 
+    border-radius: 20px; 
+    background: rgba(235, 182, 118, 0.502);
+ }
+
+ #login-h2 {
+    text-align: center;
+    background: rgb(228, 154, 51); 
+    border-top-right-radius: 20px; 
+    border-top-left-radius: 20px; 
+    padding: 5px; 
+    color: white
+ }
