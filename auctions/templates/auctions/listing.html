@@ -1,0 +1,67 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}        
+    <div>
+        <h2>{{listing.item_name}}</h2>        
+    </div>
+    {% if is_open == False %}
+    <div>
+        <H1>BIDDING HAS CLOSED FOR THIS LISTING</H1>
+        <H1>WINNER: {{ winner }}</H1>
+    </div>
+    {% else %}
+        <div>
+            <form method="post" action="{% url 'Add_to_Watchlist' %}">
+                {% csrf_token %}
+                <input type="hidden" name="id" value="{{ id }}">
+                <button type="submit" name="Watch" id="watch_button">{{ watch_value }}</button>
+            </form>
+        </div>
+        <div>
+            <img class="bigImages" src="../{{ listing.image }}" alt="{{ listing.item_name }}">
+        </div>
+        <div style="margin: 20px">
+            Bid Price: <h3 style="display: inline">${{listing.price}}</h3>
+        </div>
+        {% if listing_owner == True %}
+        <form action="{% url 'Close_Bid' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="id" value="{{ id }}">
+            <button type="submit" name="new_comment">Close Bid</button>
+        </form>
+        {% else %}
+        <form action="" method="post">
+            {% csrf_token %}
+            {{form}}
+            <input type="submit" value="Submit Bid">
+        </form>
+        {% endif %}
+    {% endif %}
+    <div style="margin-top: 20px;">
+        <h4>Description:</h4>
+    </div>
+    <div>
+        {{listing.description}}
+    </div>
+    <div>
+        <h4>Comments:</h4>
+        <div>
+            <form action="{% url 'New_Comment' %}" method="post">
+                {{ new_comment_form }}
+                {% csrf_token %}
+                <input type="hidden" name="id" value="{{ id }}">
+                <button type="submit" name="new_comment">Submit Comment</button>
+            </form>
+        </div>
+        <div style="margin: 20px">
+            {% for comment in comments %}
+            <div style="margin-top: 20px">
+                <h6>{{ comment.name }}:</h6>
+            </div>
+            <div>
+                {{ comment.comment }}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

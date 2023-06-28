@@ -1,0 +1,24 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Watchlist</h2>
+    {% for item in watched_items %}
+        <div style="margin-left: 30px; padding: 15px; outline: auto; outline-color: gainsboro;">
+            <div style="float: left; margin-right: 20px;">
+                <img class="images" src="{{ item.image }}" alt="{{ item.item_name }}">            
+            </div>
+            <div class="listing_info">    
+                <div>
+                    <h4><a href="/listing/{{ item.id }}">{{ item.item_name }}</a></h4>
+                </div>
+                <div>
+                    Description: {{ item.description }}
+                </div>
+                <div style="margin-top: 25px;">
+                    Bid Price: <h5>${{ item.price }}</h5>
+                </div>
+            </div>
+            <br style="clear:both">
+        </div>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Active Listings</h2>
+    {% for listing in listings %}
+        <div style="margin-left: 30px; padding: 15px; outline: auto; outline-color: gainsboro;">
+            <div style="float: left; margin-right: 20px;">
+                <img class="images" src="{{ listing.image }}" alt="{{ listing.item_name }}">            
+            </div>
+            <div class="listing_info">    
+                <div>
+                    <h4><a href="/listing/{{ listing.id }}">{{ listing.item_name }}</a></h4>
+                </div>
+                <div>
+                    Description: {{ listing.description }}
+                </div>
+                <div style="margin-top: 25px;">
+                    Bid Price: <h5>${{ listing.price }}</h5>
+                </div>
+            </div>
+            <br style="clear:both">
+        </div>
+    {% endfor %}
+{% endblock %}

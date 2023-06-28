@@ -1,0 +1,47 @@
+body {
+    padding: 10px;
+}
+.images {
+    width: 300px; 
+    height: 200px; 
+    object-fit: cover;
+}
+
+.bigImages {
+    width: 600px; 
+    height: 400px; 
+    object-fit: cover;
+}
+
+.listing-info {
+    margin-left: 340px;
+}
+
+#new_comment_form {
+    display:flex;
+    flex-direction:column;
+    width: 40%;
+    min-width: auto;
+    
+}
+
+#watch_button {
+    color: white;
+    background-color: dodgerblue;
+    outline: none;
+    margin-bottom: 10px;
+}
+
+#category_button {
+    color: #007bff;
+    background-color: gainsboro;
+    outline-color: none;
+    outline: none;
+    margin: 10px;
+    text-decoration: underline;
+    border: none;
+}
+
+#new_listing_table {
+    border: none
+}
