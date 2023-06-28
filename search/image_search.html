@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>images</title>
+        <style>
+            .block {
+                width: 100%;
+                height: 50px;
+            }
+            .link {
+                display: flex;
+                float: right;
+                margin: 6px;
+            }
+            form {
+                margin-top: 150px;
+                text-align: center;
+                float: center;
+                height: 50%;
+            }
+            #searchBox {
+                display: flexbox;
+                border-radius: 25px;
+                position: relative;
+                padding: 10px;
+                margin: 5px;
+                float: center;
+                width: 500px;
+                border-color: lightgrey;
+            }
+            .button {
+                margin-left: 5px;
+                margin-right: 5px;
+                margin-top: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="block">            
+            <div>
+                <a href="index.html" class="link">Google Search</a>
+            </div>
+        </div>
+        <br>
+        <div class="block">            
+            <form action="https://www.google.com/search">
+                <input type="text" id="searchBox" name="q">
+                <br>
+                <button type="submit" class="button" name="tbm" value="isch">Image Search</button>
+            </form>
+        </div>
+    </body>
+</html>
