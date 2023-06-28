@@ -1,0 +1,18 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block body %}
+
+    <div>
+        {{ content | safe }}
+    </div>
+    <div>
+        <button type="submit" style="background-color: gainsboro; text-decoration: none; border: grey">
+            <a href="/edit/{{ title }}">Edit Page</a>
+        </input>
+    </div>
+
+{% endblock %}
