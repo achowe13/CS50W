@@ -179,5 +179,5 @@ function Archive(email_id, archived) {
   });
   
   console.log('successfully archived or unarchived')
-  setTimeout(() => {load_mailbox('inbox');}, 100);
+  setTimeout(() => {load_mailbox('inbox');}, 150);
 }
